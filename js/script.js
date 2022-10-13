@@ -31,6 +31,7 @@ container.appendChild(card);
 });
 const count = document.getElementById("countDisplay");
 count.innerText = `Displaying ${episodeList.length}/${getAllEpisodes().length} episodes`
+select(episodeList);
 }
 
 function searchEpisode() {
@@ -45,5 +46,16 @@ function searchEpisode() {
   makePageForEpisodes(filteredEpisode);
 }
 
+function select(episodes) {
+const shows = document.getElementById("selectShow");
+shows.innerHTML = "";
+episodes.forEach(show => {
+const option = document.createElement("option");
+option.innerText = show.name;
+option.value = show.id;
+shows.appendChild(option);
+  
+})
+}
 
 window.onload = setup;
