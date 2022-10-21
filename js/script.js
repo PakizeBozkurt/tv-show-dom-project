@@ -5,6 +5,24 @@ function setup() {
     .getElementById("searchInput")
     .addEventListener("input", makePageForMatchingEpisodes);
 }
+
+let allShows = [];
+
+// Fetch all shows 
+function start() {
+  fetch("https://api.tvmaze.com/shows")
+    .then((response) => response.json())
+    .then((allShows) => {
+      makePageForShows(allShows);
+      displayShowsList(allShows);
+      showsTitles = document.querySelectorAll(".card__title--show");
+      showsTitles.forEach((show) => {
+        show.addEventListener("click", (e) => getShowById(e));
+      });
+    });
+}
+
+
 function makePageForEpisodes(episodeList) {
   const container = document.getElementById("episodes");
   episodeList.forEach((episode) => {
