@@ -28,6 +28,7 @@ h1 {
   color: rgb(155, 14, 124);
   border: 1px solid rgb(9, 1, 53);
   border-radius: 12px;
+  font-weight: bold;
 }
 
 img {
@@ -85,6 +86,15 @@ button,
     font-size: 2em;
   }
 
+  footer {
+    
+    bottom: 0;
+    width: 100%;
+    padding: 2em;
+    text-align: center;
+    font-size: 0.8em;
+    background-color: transparent;
+}
 
 @media screen and (min-width: 600px) {
   .card {
