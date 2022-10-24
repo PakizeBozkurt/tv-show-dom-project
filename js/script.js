@@ -15,6 +15,11 @@ function setup() {
 }
 
 function makePageForEpisodes(episodeList) {
+  console.log("length", episodeList.length);
+  const displayNumber = document.createElement("span");
+  displayNumber.innerText = `Displaying ${episodeList.length} episodes`;
+  let input = document.getElementById("countDisplay");
+  input.appendChild(displayNumber);
   const container = document.getElementById("episodes");
   episodeList.forEach((episode) => {
     const card = document.createElement("div");
