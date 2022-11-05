@@ -10,6 +10,7 @@ function setup() {
       makePageForEpisodes(showList);
       select(showList);
       selectEpisode();
+      clickAllShow(showList);
     });
   search();
 }
@@ -18,14 +19,6 @@ function makePageForEpisodes(episodeList) {
   document.getElementById(
     "countDisplay"
   ).innerText = `Displaying ${episodeList.length} / ${episodeList.length} episodes`;
-  // console.log("length", episodeList.length);
-  // // const displayNumber = document.createElement("span");
-  // document.getElementById(
-  //   "countDisplay"
-  // ).textContent = `Displaying ${episodeList.length} episodes`;
-  // //displayNumber.innerText = `Displaying ${episodeList.length} episodes`;
-  // //let input = document.getElementById("countDisplay");
-  // //input.appendChild(displayNumber);
   const container = document.getElementById("episodes");
   episodeList.forEach((episode) => {
     const card = document.createElement("div");
@@ -59,7 +52,6 @@ function makePageForEpisodes(episodeList) {
     summary.innerHTML = episode.summary;
     card.appendChild(summary);
     container.appendChild(card);
-    
   });
 }
 function select(shows) {
@@ -122,6 +114,16 @@ function search() {
         makePageForEpisodes(filteredShows);
       });
     });
+}
+
+function clickAllShow(shows) {
+  const container = document.getElementById("back-toshows");
+  container.addEventListener("click", (event) => {
+    const container = document.getElementById("episodes");
+    container.innerHTML = "";
+    makePageForEpisodes(shows);
+  });
+  // ...
 }
 
 window.onload = setup;
